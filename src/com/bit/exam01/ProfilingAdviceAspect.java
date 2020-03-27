@@ -5,13 +5,16 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Aspect
 public class ProfilingAdviceAspect {
+	
 					//모든 파일 com.bit.dao에 모든파일 모든메소드(매개변수 유무 수랑 상관없이)
 	@Pointcut("execution(public * com.bit.dao..*(..))")
 	private void daoMethod() {}
 		
+	
 	//aroundAdvice("타깃이 되는 경로(애들)를 가진 아이디")
 	//AroundAdvice는 매개변수(joinPoint)를 가진다!!
 	@Around("daoMethod()")
