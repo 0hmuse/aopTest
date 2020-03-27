@@ -12,15 +12,32 @@ public class ProfilingAdvice {
 		String methodName = joinPoint.getSignature().toShortString();
 		System.out.println(methodName + "이 동작한 후 입니다.");
 	}
-	
-	public void afterReturning(JoinPoint joinPoint) {
+												//리턴하는 값이 필요할때
+	public void afterReturning(JoinPoint joinPoint, Object ret) {
 		String methodName = joinPoint.getSignature().toShortString();
 		System.out.println(methodName + "가 정상완료 한 후 입니다.");
-	}
+		System.out.println("반환값은 다음과 같습니다.");
+		System.out.println(ret);
+		System.out.println("=====================================");
+	}	
 	
-	public void afterThrowing(JoinPoint joinPoint) {
+//	public void afterReturning(JoinPoint joinPoint) {
+//		String methodName = joinPoint.getSignature().toShortString();
+//		System.out.println(methodName + "가 정상완료 한 후 입니다.");
+//	}
+	
+	
+//	public void afterThrowing(JoinPoint joinPoint) {
+//		String methodName = joinPoint.getSignature().toShortString();
+//		System.out.println(methodName + "가 비정상적으로 종료하였습니다.");
+//	}
+													//예외에 대한 정보
+	public void afterThrowing(JoinPoint joinPoint, Throwable ex) {
 		String methodName = joinPoint.getSignature().toShortString();
 		System.out.println(methodName + "가 비정상적으로 종료하였습니다.");
+		System.out.println("다음과 같은 예외가 발생했습니다.");
+		System.out.println(ex);
+		System.out.println("=============================================");
 	}
 	
 	

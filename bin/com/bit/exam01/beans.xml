@@ -27,8 +27,15 @@
 			<!-- <aop:after-returning method="afterReturning" pointcut-ref="daoMehod"/> -->
 			<!-- 정상완료 후 실행해라 -->
 			
-			<aop:after-throwing method="afterThrowing" pointcut-ref="daoMehod"/>
+			<!-- <aop:after-throwing method="afterThrowing" pointcut-ref="daoMehod"/> -->
 			<!-- 비정상적으로 완료한 후 실행해라 -->
+			
+			<!-- <aop:after-returning method="afterReturning" pointcut-ref="daoMehod" returning="ret"/> -->
+			<!-- 정상동작후 리턴값 확인하고 싶다 -->
+			
+			<aop:after-throwing method="afterThrowing" pointcut-ref="daoMehod" throwing="ex"/>
+			<!-- 예외가 난 메소드를 확인하고싶다 -->
+			
 		</aop:aspect>		
 	</aop:config>
 
